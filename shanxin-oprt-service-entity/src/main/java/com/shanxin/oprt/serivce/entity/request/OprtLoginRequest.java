@@ -3,6 +3,7 @@ package com.shanxin.oprt.serivce.entity.request;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import com.shanxin.core.api.ApiRequest;
 import com.shanxin.core.exception.CheckException;
@@ -15,7 +16,9 @@ import com.shanxin.oprt.serivce.entity.response.OprtLoginResponse;
 @JsonAutoDetect(creatorVisibility = Visibility.NONE, fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, isGetterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class OprtLoginRequest extends ApiRequest<OprtLoginResponse> {
 	// 对子类要去掉appId及appSecret验测，只需要在此子类加上一个appId_，appSecret_字段(修稀符任意，类型任意)
+	@JsonIgnore
 	protected Integer oprtId_;
+	@JsonIgnore
 	protected String oprtSecret_;
 	private String oprtLoginName;
 	private String oprtLoginPwd;
